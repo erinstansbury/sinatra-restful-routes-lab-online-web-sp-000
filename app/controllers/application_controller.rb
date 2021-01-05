@@ -42,4 +42,9 @@ class ApplicationController < Sinatra::Base
     @recipe.delete
     redirect to '/recipes'
   end
+  
+  get '/recipes/:id' do
+    @recipe = Recipe.find(params[:id])
+    erb :"show"
+  end
 end
